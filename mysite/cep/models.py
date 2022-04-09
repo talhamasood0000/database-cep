@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 class InternationalChapter(models.Model):
     yp_id=models.IntegerField(primary_key=True)
     region_no=models.IntegerField(max_length=3)
-    
+
+
 
 
