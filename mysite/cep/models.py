@@ -23,7 +23,7 @@ class Members(models.Model):
 
 class InternationalChapter(models.Model):
     yp_id=models.IntegerField(primary_key=True)
-    region_no=models.IntegerField(max_length=3)
+    region_no=models.IntegerField()
 
 class CoreBody(models.Model):
     id=models.IntegerField(primary_key=True)
@@ -45,17 +45,17 @@ class GeneralMember(models.Model):
 
 class Activities(models.Model):
     event_id=models.IntegerField(primary_key=True)
-    registration_fee=models.IntegerField(max_length=3)
+    registration_fee=models.IntegerField()
     venue=models.CharField(max_length=100,null=False)
     date_time=models.DateTimeField(null=False)
-    no_of_attendees=models.IntegerField(max_length=3)
+    no_of_attendees=models.IntegerField()
     member_id=models.ForeignKey(ExecutiveMembers,on_delete=models.CASCADE)
 
 class Inventory(models.Model):
     item_id=models.IntegerField(primary_key=True)
     name=models.CharField(max_length=100,null=False)
     description=models.CharField(max_length=100,null=False)
-    quantity=models.IntegerField(max_length=3)
+    quantity=models.IntegerField()
     issue=models.DateTimeField(null=False)
     type=models.CharField(max_length=100,null=False)
 
@@ -66,8 +66,8 @@ class Manages(models.Model):
 class Team(models.Model):
     name=models.CharField(max_length=100,null=False)
     description=models.CharField(max_length=100,null=True)
-    domain=models.IntegerField(max_length=1)
-    no_of_members=models.IntegerField(max_length=3)
+    domain=models.IntegerField()
+    no_of_members=models.IntegerField()
     member_id=models.ForeignKey(GeneralMember,on_delete=models.CASCADE)
     event_id=models.ForeignKey(Activities,on_delete=models.CASCADE)
 
@@ -78,7 +78,7 @@ class PartOf(models.Model):
 
 class Reports(models.Model):
     report_id=models.IntegerField(primary_key=True)
-    no_of_attendees=models.IntegerField(max_length=3)
+    no_of_attendees=models.IntegerField()
     proceedings=models.CharField(max_length=100,null=False)
     event_id=models.ForeignKey(Activities,on_delete=models.CASCADE)
 
