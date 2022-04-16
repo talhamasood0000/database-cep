@@ -32,8 +32,6 @@ class InternationalChapter(models.Model):
     yp_id=models.AutoField(primary_key=True)
     region_no=models.IntegerField()
     
-
-
 class CoreBody(models.Model):
     id=models.AutoField(primary_key=True)
     user=models.ForeignKey(Members,on_delete=models.CASCADE)
@@ -55,7 +53,7 @@ class GeneralMember(models.Model):
     duties=models.CharField(max_length=100,null=True)
 
     def __str__(self):
-        return self.user.user.name.user.username
+        return self.user.name.user.username
 
 class Activities(models.Model):
     event_id=models.AutoField(primary_key=True)
@@ -114,6 +112,5 @@ class RequestView(models.Model):
     int_mem_id=models.ForeignKey(Members,on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.item_id.name)+str(self.int_mem_id.name.user.username)
+        return str(self.item_id.name)+" issued to "+str(self.int_mem_id.name.user.username)
 
-        
