@@ -10,4 +10,5 @@ def index(request):
 
     return render(request, 'cep/index.html',context)
 
-
+def aboutus(request):
+    return render(request, 'cep/about.html')
