@@ -3,11 +3,11 @@ from .models import *
 
 # Create your views here.
 
-def home(request):
+def index(request):
     object=Members.objects.all()
     
     context={'hello':object}
 
-    return render(request, 'cep/home.html',context)
+    return render(request, 'cep/index.html',context)
 
 
