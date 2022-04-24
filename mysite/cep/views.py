@@ -12,8 +12,10 @@ def aboutus(request):
 def contact(request):
     return render(request, 'cep/contact.html')
 
-def teachers(request):
-    return render(request, 'cep/teachers.html')
+def core_body(request):
+    objects=CoreBody.objects.all()
+    context={'objects':objects}
+    return render(request, 'cep/core_body.html',context)
 
 def courses(request):
     return render(request, 'cep/course-grid-2.html')
