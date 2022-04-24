@@ -20,8 +20,11 @@ def core_body(request):
 def courses(request):
     return render(request, 'cep/course-grid-2.html')
 
+def activities(request):
+    activities=Activities.objects.all()
+    context={'activities':activities}
+    return render(request, 'cep/activities.html',context)
+
 def blogsingle(request):
     return render(request, 'cep/blog-single.html')
 
-def blog(request):
-    return render(request, 'cep/blog.html')

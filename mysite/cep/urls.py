@@ -11,7 +11,7 @@ urlpatterns = [
    path('core_body/',views.core_body,name='core_body'),
    path('courses/',views.courses,name='courses'),
    path('blogsingle/',views.blogsingle,name='blogsingle'),
-   path('blog/',views.blog,name='blog'),
+   path('activities/',views.activities,name='activities'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

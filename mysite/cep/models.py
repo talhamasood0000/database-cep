@@ -60,6 +60,8 @@ class GeneralMember(models.Model):
 
 class Activities(models.Model):
     event_id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=100,null=False)
+    image_field=models.ImageField(upload_to='activities/',null=True)
     registration_fee=models.IntegerField()
     venue=models.CharField(max_length=100,null=False)
     date_time=models.DateTimeField(null=False)
