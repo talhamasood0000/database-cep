@@ -28,3 +28,6 @@ def activities(request):
 def blogsingle(request):
     return render(request, 'cep/blog-single.html')
 
+def login_user(request):
+    return render(request, 'cep/login.html')
+
