@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
+from .forms import NewUserForm
+from django.contrib.auth import login
+from django.contrib import messages
 
 # Create your views here.
 
@@ -29,5 +32,15 @@ def blogsingle(request):
     return render(request, 'cep/blog-single.html')
 
 def login_user(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful.")
+            return redirect("main:homepage")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    else:
+        form = NewUserForm()
     return render(request, 'cep/login.html')
 
