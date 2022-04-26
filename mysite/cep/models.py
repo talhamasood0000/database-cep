@@ -1,5 +1,4 @@
-from distutils.command.upload import upload
-from email.policy import default
+from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -69,6 +68,9 @@ class Activities(models.Model):
     member_id=models.ForeignKey(ExecutiveMembers,on_delete=models.CASCADE)
     details=models.CharField(max_length=1000,null=True)
 
+    def get_absolute_url(self):
+        return reverse('activity_detail', args=[self.event_id])
+
 class Inventory(models.Model):
     item_id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=100,null=False)
@@ -119,4 +121,3 @@ class RequestView(models.Model):
 
     def __str__(self):
         return str(self.item_id.name)+" issued to "+str(self.int_mem_id.name.user.username)
-

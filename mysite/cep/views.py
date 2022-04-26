@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 from .forms import NewUserForm
 from django.contrib.auth import login
@@ -28,8 +28,10 @@ def activities(request):
     context={'activities':activities}
     return render(request, 'cep/activities.html',context)
 
-def blogsingle(request):
-    return render(request, 'cep/blog-single.html')
+def activity_detail(request,id):
+    activity=get_object_or_404(Activities,pk=id)
+    context={'activity':activity}
+    return render(request, 'cep/activity-detail.html',context)
 
 def login_user(request):
     if request.method == "POST":
@@ -44,3 +46,4 @@ def login_user(request):
         form = NewUserForm()
     return render(request, 'cep/login.html')
 
+ 

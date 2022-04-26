@@ -10,10 +10,11 @@ urlpatterns = [
    path('contact/',views.contact,name='contact'),
    path('core_body/',views.core_body,name='core_body'),
    path('courses/',views.courses,name='courses'),
-   path('blogsingle/',views.blogsingle,name='blogsingle'),
+   path('activity_detail/<int:id>',views.activity_detail,name='activity_detail'),
    path('activities/',views.activities,name='activities'),
    path('login/',views.login_user,name='login'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
+ 
