@@ -11,4 +11,4 @@ Society Management System
 <h3>M Talha Masood</h3>
 
 <h4>Link:</h4>
-<a href="https://extramail.pythonanywhere.com/" target="_blank">IET On Campus UET Lahore</a>
+<a href="https://extramail.pythonanywhere.com/" target="_blank" >IET On Campus UET Lahore</a>
