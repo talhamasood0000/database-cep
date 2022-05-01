@@ -20,8 +20,10 @@ def core_body(request):
     context={'objects':objects}
     return render(request, 'cep/core_body.html',context)
 
-def courses(request):
-    return render(request, 'cep/course-grid-2.html')
+def teams(request):
+    teams=Team.objects.all()
+    context={'teams':teams}
+    return render(request, 'cep/teams.html',context)
 
 def activities(request):
     activities=Activities.objects.all()

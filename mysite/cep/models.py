@@ -92,6 +92,7 @@ class Team(models.Model):
     domain=models.IntegerField()
     no_of_members=models.IntegerField()
     member_id=models.ForeignKey(GeneralMember,on_delete=models.CASCADE)
+    lead_by=models.ForeignKey(ExecutiveMembers,on_delete=models.CASCADE)
     event_id=models.ForeignKey(Activities,on_delete=models.CASCADE)
 
 class PartOf(models.Model):
