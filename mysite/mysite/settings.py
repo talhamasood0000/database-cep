@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fyy(^x)g607fnox0(fjc#$s2s**7o01#&3i63u6)o$@z3***mi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'extramail.pythonanywhere.com']
 
 
 # Application definition
