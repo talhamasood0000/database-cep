@@ -14,6 +14,9 @@ urlpatterns = [
    path('activities/',views.activities,name='activities'),
    path('register/',views.register_user,name='register'),
    path('logout/',views.logout_page,name='logout'),
+   path('inventory/',views.inventory,name='inventory'),
+   path('invent_req/<slug:slug>/',views.inventory_request,name='invent_req'),
+   
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

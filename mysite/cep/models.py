@@ -23,6 +23,7 @@ class Guest(models.Model):
         return self.name
 
 class Members(models.Model):
+    id=models.AutoField(primary_key=True)
     name=models.ForeignKey(MyUser,on_delete=models.CASCADE)
     type=models.CharField(max_length=100,null=False)
 

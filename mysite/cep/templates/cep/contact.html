@@ -73,10 +73,17 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'activities' %}">Activities </a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'core_body' %}">Core Body</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inventory' %}">Inventory</a></li>
                     </ul>
+                    {% if user.is_authenticated %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="hover-btn-new log" href="{% url 'logout' %}"><span>{{user.username}}</span></a></li>
+                    </ul>
+                    {% else %}
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="{% url 'register' %}"><span>Register Now</span></a></li>
                     </ul>
+                    {% endif %}
                 </div>
             </div>
         </nav>

@@ -1,9 +1,11 @@
+from multiprocessing import context
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 from .forms import *
 from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+import datetime
 # Create your views here.
 
 def index(request):
@@ -65,4 +67,24 @@ def register_user(request):
 def logout_page(request):
     logout(request)
     return redirect('/register/')
+
+
+def inventory(request):
+    inventorys=Inventory.objects.all()
+    context={'inventorys':inventorys}
+    return render(request, 'cep/inventory.html',context)
+
+def inventory_request(request,slug):
+    today = datetime.date.today()
+    next_week = today + datetime.timedelta(days=7)
+
+    inventory=get_object_or_404(Inventory,item_id=slug)
+    member=Members.objects.get(id=request.user.id)
+
+    inv_req=RequestView.objects.create(item_id=inventory,int_mem_id=member,return_date=next_week)
+    inv_req.save()
+
+    reqviews=RequestView.objects.all()
+    context={'reqviews':reqviews}
+    return render (request, 'cep/inventory-request.html',context)
  
