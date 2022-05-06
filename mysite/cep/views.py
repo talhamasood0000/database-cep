@@ -49,9 +49,9 @@ def register_user(request):
             messages.success(request, f'Registration complete! You may log in!')
             return redirect('/')
         if l_form.is_valid():
-            name=l_form.cleaned_data.get('name')
+            username=l_form.cleaned_data.get('username')
             password=l_form.cleaned_data.get('password')
-            user=authenticate(name=name,password=password)
+            user=authenticate(username=username,password=password)
             print(user)
             if user is not None:
                 login(request,user)
@@ -62,3 +62,7 @@ def register_user(request):
         l_form = LoginForm(request.POST or None)
     return render(request, 'cep/register.html', {'u_form': u_form, 'p_form': p_form, 'l_form': l_form})
 
+def logout_page(request):
+    logout(request)
+    return redirect('/register/')
+ 

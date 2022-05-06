@@ -13,6 +13,7 @@ urlpatterns = [
    path('activity_detail/<int:id>',views.activity_detail,name='activity_detail'),
    path('activities/',views.activities,name='activities'),
    path('register/',views.register_user,name='register'),
+   path('logout/',views.logout_page,name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
