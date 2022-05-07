@@ -4,6 +4,7 @@ from .models import *
 from .forms import *
 from django.contrib.auth import login
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 import datetime
 # Create your views here.
@@ -74,6 +75,7 @@ def inventory(request):
     context={'inventorys':inventorys}
     return render(request, 'cep/inventory.html',context)
 
+@login_required(login_url='/register/')
 def inventory_request(request,slug):
     today = datetime.date.today()
     next_week = today + datetime.timedelta(days=7)
