@@ -124,3 +124,10 @@ class RequestView(models.Model):
 
     def __str__(self):
         return str(self.item_id.name)+" issued to "+str(self.int_mem_id.name.user.username)
+
+class Contact(models.Model):
+    first_name=models.CharField(max_length=100,null=False)
+    last_name=models.CharField(max_length=100,null=False)
+    email=models.EmailField(max_length=100,null=False)
+    phonenumber=models.IntegerField(null=False)
+    subject=models.CharField(max_length=100,null=False)

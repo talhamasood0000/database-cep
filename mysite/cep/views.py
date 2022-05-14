@@ -16,7 +16,15 @@ def aboutus(request):
     return render(request, 'cep/about.html')
 
 def contact(request):
-    return render(request, 'cep/contact.html')
+    if request.method == "POST":
+        form=ContactForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form=ContactForm()
+    context={'form':form}
+    return render(request, 'cep/contact.html',context)
 
 def core_body(request):
     objects=CoreBody.objects.all()
